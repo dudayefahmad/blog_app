@@ -1,6 +1,4 @@
 import 'dart:io';
-import 'dart:math';
-
 import 'package:blog_app/core/common/cubits/app_user/app_user_cubit.dart';
 import 'package:blog_app/core/common/widgets/loader.dart';
 import 'package:blog_app/core/theme/app_pallete.dart';
@@ -81,7 +79,7 @@ class _AddNewBlogPageState extends State<AddNewBlogPage> {
         listener: (context, state) {
           if (state is BlogFailure) {
             showSnackBar(context, state.error);
-          } else if (state is BlogSuccess) {
+          } else if (state is BlogUploadSuccess) {
             Navigator.pushAndRemoveUntil(
               context,
               BlogPage.route(),
@@ -124,14 +122,14 @@ class _AddNewBlogPageState extends State<AddNewBlogPage> {
                             },
                             child: DottedBorder(
                               color: AppPallete.borderColor,
-                              dashPattern: [10, 4],
+                              dashPattern: const [10, 4],
                               radius: const Radius.circular(10),
                               borderType: BorderType.RRect,
                               strokeCap: StrokeCap.round,
-                              child: Container(
+                              child: const SizedBox(
                                 height: 150,
                                 width: double.infinity,
-                                child: const Column(
+                                child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Icon(
@@ -152,7 +150,7 @@ class _AddNewBlogPageState extends State<AddNewBlogPage> {
                               ),
                             ),
                           ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     SingleChildScrollView(
