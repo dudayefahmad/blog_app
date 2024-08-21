@@ -59,7 +59,7 @@ class BlogViewerPage extends StatelessWidget {
                 const SizedBox(height: 20),
                 Text(
                   blog.content,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 16,
                     height: 2,
                   ),
